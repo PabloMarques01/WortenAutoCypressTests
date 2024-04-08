@@ -46,6 +46,8 @@ describe('Sprint 05 automatic tests', () => {
     cy.xpath("//a[@href='/telemoveis-e-pacotes-tv/telemoveis-recondicionados']").click()
 
     // Click in "Filtrar"
+    cy.wait(3000)
+    cy.scrollTo(0,500)
     cy.get('.filters-bar__filter-button').click({force: true})
 
     // Choose the brand "Apple"
@@ -76,6 +78,8 @@ describe('Sprint 05 automatic tests', () => {
     cy.xpath("//a[@href='/telemoveis-e-pacotes-tv/telemoveis-recondicionados']").click()
 
     // Click in "Filtrar"
+    cy.wait(3000)
+    cy.scrollTo(0,500)
     cy.get('.filters-bar__filter-button').click({force: true})
 
     // Use price filter to see only products between 0€ and 100€
@@ -105,6 +109,8 @@ describe('Sprint 05 automatic tests', () => {
     cy.xpath("//a[@href='/telemoveis-e-pacotes-tv/telemoveis-recondicionados']").click()
 
     // Click in "Filtrar"
+    cy.wait(3000)
+    cy.scrollTo(0,500)
     cy.get('.filters-bar__filter-button').click({force: true})
 
     // Choose the brand "Apple"
@@ -119,13 +125,13 @@ describe('Sprint 05 automatic tests', () => {
     cy.get('.filters__footer > .button--primary').click()
 
     // Click in the smartphone you want to check the details
-    cy.get('.produc-card__name__link').click()
+    cy.get(':nth-child(2) > .product-card--grid-container > .product-card').click()
 
     // Click in "Ler Mais"
-    cy.get('.read-more-container__trigger').click()
+    cy.get('.technical-specifications > .action-list--worten').click()
 
     // Assertion on the details
-    cy.get('.open > .font-m').should("be.visible")
+    cy.get('#modalTitle').should("be.visible")
     .and("exist")
 
   })
@@ -142,6 +148,8 @@ describe('Sprint 05 automatic tests', () => {
     cy.xpath("//a[@href='/telemoveis-e-pacotes-tv/telemoveis-recondicionados']").click()
 
     // Click in "Filtrar"
+    cy.wait(3000)
+    cy.scrollTo(0,500)
     cy.get('.filters-bar__filter-button').click({force: true})
 
     // Choose the brand "Apple"
@@ -156,7 +164,7 @@ describe('Sprint 05 automatic tests', () => {
     cy.get('.filters__footer > .button--primary').click()
 
     // Click in the smartphone you want to check the details
-    cy.get('.produc-card__name__link').click()
+    cy.get(':nth-child(2) > .product-card--grid-container > .product-card').click()
 
     // Click in "Adicionar ao carrinho"
     cy.get('.add-to-cart__button--buy-box').click()
@@ -183,6 +191,8 @@ describe('Sprint 05 automatic tests', () => {
     cy.xpath("//a[@href='/telemoveis-e-pacotes-tv/telemoveis-recondicionados']").click()
 
     // Click in "Filtrar"
+    cy.wait(3000)
+    cy.scrollTo(0,500)
     cy.get('.filters-bar__filter-button').click({force: true})
 
     // Choose the brand "Apple"
@@ -197,7 +207,7 @@ describe('Sprint 05 automatic tests', () => {
     cy.get('.filters__footer > .button--primary').click()
 
     // Click in the product
-    cy.get('.produc-card__name__link').click()
+    cy.get(':nth-child(2) > .product-card--grid-container > .product-card').click()
 
     // Assertion on the text
     cy.get('.check-info__text > .neu-11').should("be.visible")
@@ -211,7 +221,7 @@ describe('Sprint 05 automatic tests', () => {
     cy.xpath("//a[@aria-label='Carrinho']").click()
 
     // Click in "Comprar"
-    cy.xpath('//*[@id="__nuxt"]/div/div/div[2]/div[7]/div/div/div/div[3]/div/a').click()
+    cy.get('.cart__button').click()
 
     // Assertion off the URL, if matches with the requested URL
     cy.url().should("eq","https://www.worten.pt/checkout/v2/billing")
